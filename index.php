@@ -45,7 +45,7 @@
     <!------------------- featured products --------------->
 
     <div class="small-container">
-        <h2>Featured Product</h2>
+        <!-- <h2>Featured Product</h2>
         <div class="row" style="margin-top:20px;">
             <?php 
                 $result = mysqli_query($conn,"SELECT * FROM products");
@@ -61,11 +61,12 @@
             <?php
                 }
             ?>
-        </div>
+        </div> -->
         <h2 class="title">Latest Products</h2>
         <div class="row" style="margin-top:20px;">
             <?php 
-                $result = mysqli_query($conn,"SELECT * FROM products");
+            
+                $result = mysqli_query($conn,"SELECT * FROM products ORDER BY prodcut_id DESC LIMIT 8");
                 while($row = mysqli_fetch_array($result))
                 {
                             

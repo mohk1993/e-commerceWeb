@@ -11,6 +11,7 @@ if(isset($_POST['add'])){
     $productCategory = $_POST["category"];
     $productDescription = $_POST["description"];
     $productQuantity = $_POST["quantity"];
+    $customerFk = $_POST["fk"];
 
     if(file_exists("images/".$_FILES["imge"]["name"]))
     {
@@ -19,8 +20,8 @@ if(isset($_POST['add'])){
         header('location:add-product.php');
     }else
     {
-        $query = "INSERT INTO products (product_img, product_name, product_price, product_date, product_category, product_description, product_quantity) 
-        VALUES ('$fileName','$productTitle','$productPrice','$productDate','$productCategory','$productDescription','$productQuantity')";
+        $query = "INSERT INTO products (product_img, product_name, product_price, product_date, product_category, product_description, product_quantity, customer_Fk) 
+        VALUES ('$fileName','$productTitle','$productPrice','$productDate','$productCategory','$productDescription','$productQuantity','$customerFk')";
         $res = mysqli_query($conn,$query);
         
         if($res){
@@ -37,44 +38,13 @@ if(isset($_POST['add'])){
 else{
     header("location: ../add-product.php?error=isset");
 }
-   // $fileName = $_FILES['file']['name'];
-    // $fileTmpName = $_FILES['file']['tmp_name'];
-    // $fileSize = $_FILES['file']['size'];
-    // $fileError = $_FILES['file']['error'];
-    // $fileType = $_FILES['file']['type'];
 
-    // $fileExt = explode('.',$fileName);
-    // $fileActualExt = strtolower(end($fileExt));
-    // move_uploaded_file($fileTmpName,"$productImg");
-    // $allowed = array('jpg','jpeg','png');
-
-    // if(in_array($fileActualExt,$allowed)){
-    //     if($fileError===0){
-    //         if($fileSize===1000000){
-    //             $fileNameNew = uniqid('',true).".".$fileActualExt;
-    //             // $fileDestination = 'images/'.$fileNameNew;
-    //             $query = "INSERT INTO products (product_img, product_name, product_price, product_date, product_category, product_description, product_quantity) 
-    //             VALUES ('$fileName','$productTitle','$productPrice','$productDate','$productCategory','$productDescription','$productQuantity')";
-    //            $res = mysqli_query($conn,$query);
-
-                
-                
-    //         }else{
-    //             echo  "Your file is to large";
-    //         }
-    //     }else{
-    //         echo  "There was an error uploading your file";
-    //     }
-    // }else{
-    //     echo  "You can not upload files of this type";
+    // if(emptyInputProduct($productImg,$productTitle,$productPrice,$productDate,$productCategory,$productDescription,$productQuantity)!==false){
+    // header("location: ../add-product.php?error=emptyinput");
+    //     return;
     // }
-
-    // // if(emptyInputProduct($productImg,$productTitle,$productPrice,$productDate,$productCategory,$productDescription,$productQuantity)!==false){
-    // //     header("location: ../add-product.php?error=emptyinput");
-    // //     return;
-    // // }
-
-    // // creatProduct($conn,$productImg,$productTitle,$productPrice,$productDate,$productCategory,$productDescription,$productQuantity);
+    
+    // creatProduct($conn,$productImg,$productTitle,$productPrice,$productDate,$productCategory,$productDescription,$productQuantity);
 
 
 # ---- DELETE -----

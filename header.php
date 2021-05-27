@@ -34,7 +34,7 @@ require_once 'includes\dbh.inc.php';
 
                                 echo "<li><a href='includes\logout.inc.php'>Log out</a></li>";
                             }else{
-                            echo "<li><a href='includes\logout.inc.php'>log in</a></li>";
+                            echo "<li><a href='login.php'>log in</a></li>";
                             }
                         ?>  
                     </ul>

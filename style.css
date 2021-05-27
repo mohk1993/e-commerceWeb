@@ -236,7 +236,8 @@ select:focus{
     padding-top: 20px;
 }
 .singl-prodct-col2 p{
-    padding-top: 20px;
+    padding-top: 2px;
+    padding-bottom: 10px;
 }
 .small-img-row{
     display: flex;
@@ -414,3 +415,6 @@ max-height: 500px;
   
   /* Change the background color of the dropdown button when the dropdown content is shown */
   .dropdown:hover .dropbtn {background-color: #3e8e41;}
+  .p-color{
+    color: #555555;
+  }

@@ -27,7 +27,7 @@ if(emailExists($conn,$email)!==false){
     header("location: ../login.php?error=emailtaken");
     exit();
 }
-creatUser($conn,$name,$phone,$address,$email,$password);
+creatUser($conn,$name,$address,$phone,$email,$password);
 
 }
 else{

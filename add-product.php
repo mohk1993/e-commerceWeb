@@ -1,6 +1,6 @@
 <?php
 include_once 'header.php';
-
+$customer_id = $_SESSION["userid"];
 ?>
 </div>
 <div class="login">
@@ -35,6 +35,7 @@ include_once 'header.php';
                         <!-- <textarea name="description" placeholder="Description" style="width:80%;margin:10px 0" cols="30" rows="4"></textarea> -->
                         <input type="input" placeholder="description" name="description" required="required">
                         <input type="input" placeholder="Quantity" name="quantity" required="required">
+                        <input type="hidden" placeholder="customer_Fk" name="fk" value="<?php echo $customer_id;?>" required="required">
                         <button tybe="submit" name="add" style="width:80%" class="btn">Upload</button><br>
                         <a href="index.php" name="cancel" style="width:80%;font-size:20px" > Cancel! </a>
                     </form>

@@ -54,7 +54,7 @@ function emailExists($conn,$email){
    mysqli_stmt_close($stmt);
 }
 
-function creatUser($conn,$name,$phone,$address,$email,$password){
+function creatUser($conn,$name,$address,$phone,$email,$password){
     $sql = "INSERT INTO customers (customer_name, customer_address, customer_phone,customer_email, customer_password) VALUES (?, ?, ?, ?, ?);"; 
     $stmt = mysqli_stmt_init($conn);
     if(!mysqli_stmt_prepare($stmt,$sql)){
@@ -64,7 +64,7 @@ function creatUser($conn,$name,$phone,$address,$email,$password){
 
     $hashedPwd = password_hash($password,PASSWORD_DEFAULT);
  
-    mysqli_stmt_bind_param($stmt,"sssss",$name,$phone,$address,$email,$hashedPwd);
+    mysqli_stmt_bind_param($stmt,"sssss",$name,$address,$phone,$email,$hashedPwd);
     mysqli_stmt_execute($stmt);
  
     mysqli_stmt_close($stmt);
